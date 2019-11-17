@@ -28,6 +28,9 @@ RUN sudo apt update && apt install -y --no-install-recommends r-base r-base-dev 
 
 # Utilities for R Jupyter Kernel
 
+RUN echo 'install.packages(c("xml2"), repos="https://cloud.r-project.org/", dependencies=TRUE)' > /tmp/packages.R  && Rscript /tmp/packages.R
+
+
 RUN echo 'install.packages(c("openssl"), \
 repos="https://cloud.r-project.org/", dependencies=TRUE)' > /tmp/packages.R \
    && Rscript /tmp/packages.R
